@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendSmart - Expense Tracker</title>
+    <link rel="stylesheet" href="EXP-ANALYSIS.css">
+</head>
+<body>
+ <div class="wrapper">
+    <header>
+        <h1> SpendSmart</h1>
+        <div class="budget-control">
+            <label for="budgetInput"><strong>Monthly Budget:</strong> ₹</label>
+            <input type="number" id="budgetInput" min="0" value="0">
+            <button id="setBudgetBtn">Update</button>
+        </div>
+    </header>
+
+    <section class="dashboard">
+        <div class="card">
+            <h3>Current Month Spending</h3>
+            <p id="totalSpending">₹0.00</p>
+        </div>
+        <div class="card">
+            <h3>Expense Count</h3>
+            <p id="expenseCount">0</p>
+        </div>
+        <div class="card" id="budgetCard">
+            <h3>Remaining Budget</h3>
+            <p id="remainingBudget">₹0.00</p>
+        </div>
+    </section>
+
+<div class="workspace">
+        <aside class="left-column">
+            <div class="panel">
+                <h2>Log Expense</h2>
+                <form id="expenseForm" novalidate>
+                    <div class="form-group">
+                        <label for="expName">Expense Name</label>
+                        <input type="text" id="expName" placeholder="e.g., Grocery Shopping" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expAmount">Amount (₹)</label>
+                        <input type="number" id="expAmount" min="0.01" step="0.01" placeholder="0.00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expCategory">Category</label>
+                        <select id="expCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="expDate">Date</label>
+                        <input type="date" id="expDate" required>
+                    </div>
+                    <button type="submit" class="btn-block">Add Record</button>
+                </form>
+            </div>
+
+            <div class="panel">
+                <div class="backup-actions">
+                    <button id="clearAllBtn" class="btn-danger">Clear All Expenses</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="panel">
+            <h2>Expense History</h2>
+            <div class="filters">
+                <input type="text" id="searchBar" placeholder="Search by name...">
+                <select id="categoryFilter">
+                    <option value="All">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <head>
+                        <tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </head>
+                    <tbody id="expenseTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</div>  
+<script type="module" src="anaysis.js"></script>
+</body>
+</html>
